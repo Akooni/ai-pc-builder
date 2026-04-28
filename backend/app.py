@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS
 
 try:
     from .constraints import format_build_response
@@ -34,6 +35,7 @@ ALGORITHMS = {
 ALLOWED_PURPOSES = {"gaming", "office", "content creation", "ai/ml", "budget", "high-end"}
 
 app = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
+CORS(app)
 COMPONENTS = load_components(DATA_FILE)
 
 
