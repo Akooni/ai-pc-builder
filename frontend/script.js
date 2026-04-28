@@ -6,6 +6,7 @@ const compareBtn = document.getElementById("compare-algorithms");
 const exportBtn = document.getElementById("export-report");
 let lastBuildResult = null;
 const ALGORITHMS = ["bfs", "dfs", "ucs", "astar"];
+const API_BASE_URL = (window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL) || "";
 
 function getSafe(obj, key, fallback) {
   if (!obj || obj[key] === undefined || obj[key] === null) return fallback;
@@ -93,7 +94,7 @@ function buildReportText(data) {
 }
 
 async function fetchBuild(payload) {
-  const response = await fetch("/build", {
+  const response = await fetch(`${API_BASE_URL}/build`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

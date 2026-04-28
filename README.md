@@ -55,6 +55,14 @@ python backend/app.py
 
 - [http://localhost:5000](http://localhost:5000)
 
+## Deploy Notes (Netlify + Flask)
+
+Netlify can host the frontend static files, but it does not run this Flask app directly.
+
+- Frontend on Netlify: publish directory is `frontend` (configured in `netlify.toml`)
+- Backend (Flask API) should be hosted on a Python host such as Render/Railway/Fly.io
+- Then update frontend API calls to target your backend URL
+
 ## API
 
 ### `POST /build`
