@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI PC Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>AI-Based PC Builder</h1>
+      <p class="subtitle">Search algorithms: BFS, DFS, UCS</p>
+
+      <form id="builder-form" class="card">
+        <label for="budget">Budget (USD)</label>
+        <input id="budget" name="budget" type="number" min="100" step="1" placeholder="e.g. 1200" required />
+
+        <label for="purpose">Purpose</label>
+        <select id="purpose" name="purpose" required>
+          <option value="">Select purpose</option>
+          <option value="gaming">Gaming</option>
+          <option value="office">Office</option>
+          <option value="content creation">Content Creation</option>
+          <option value="ai/ml">AI/ML</option>
+          <option value="budget">Budget</option>
+          <option value="high-end">High-End</option>
+        </select>
+
+        <label for="algorithm">Algorithm</label>
+        <select id="algorithm" name="algorithm" required>
+          <option value="bfs">BFS</option>
+          <option value="dfs">DFS</option>
+          <option value="ucs">UCS</option>
+          <option value="astar">A*</option>
+        </select>
+
+        <button type="submit">Generate Build</button>
+        <button type="button" id="compare-algorithms">Compare Algorithms</button>
+        <button type="button" id="export-report" disabled>Export Report</button>
+      </form>
+
+      <section id="result" class="card hidden"></section>
+      <section id="compare-result" class="card hidden"></section>
+      <section id="error" class="card error hidden"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
